@@ -30,16 +30,16 @@ class HWW_VBF_DNN(Module):
         
         
         try:
-            #ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMoMEMta.C+g')
-            #ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMELA_VBF.C+g')
-            #ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMELA_VBF_VH.C+g')
-            #ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMELA_QCD_VH.C+g')
+            ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMoMEMta.C+g')
+            ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMELA_VBF.C+g')
+            ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMELA_VBF_VH.C+g')
+            ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMELA_QCD_VH.C+g')
             ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/mlj.C+g')
         except RuntimeError:
-            #ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMoMEMta.C++g')
-            #ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMELA_VBF.C++g')
-            #ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMELA_VBF_VH.C++g')
-            #ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMELA_QCD_VH.C++g')
+            ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMoMEMta.C++g')
+            ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMELA_VBF.C++g')
+            ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMELA_VBF_VH.C++g')
+            ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/RecoMELA_QCD_VH.C++g')
             ROOT.gROOT.LoadMacro('/afs/cern.ch/work/s/sblancof/public/CMSSW_10_6_10/src/LatinoAnalysis/Gardener/python/variables/mlj.C++g')
         
 
@@ -153,12 +153,12 @@ class HWW_VBF_DNN(Module):
         
         if (nlepton>=2 and njets>=2):
           
-            '''
+            
             D_VBF_DY = ROOT.RecoMoMEMta(njets, nlepton, event.MET_pt, event.MET_phi, Leptons[0].pt, Leptons[1].pt, Leptons[0].phi, Leptons[1].phi, Leptons[0].eta, Leptons[1].eta, CleanJet[0].pt, CleanJet[1].pt, CleanJet[0].phi, CleanJet[1].phi, CleanJet[0].eta, CleanJet[1].eta, Leptons[0].pdgId, Leptons[1].pdgId)
             D_VBF_QCD = ROOT.RecoMELA_VBF(njets, nlepton, event.MET_pt, event.MET_phi, Leptons[0].pt, Leptons[1].pt, Leptons[0].phi, Leptons[1].phi, Leptons[0].eta, Leptons[1].eta, CleanJet[0].pt, CleanJet[1].pt, CleanJet[0].phi, CleanJet[1].phi, CleanJet[0].eta, CleanJet[1].eta, Leptons[0].pdgId, Leptons[1].pdgId)
             D_VBF_VH = ROOT.RecoMELA_VBF_VH(njets, nlepton, event.MET_pt, event.MET_phi, Leptons[0].pt, Leptons[1].pt, Leptons[0].phi, Leptons[1].phi, Leptons[0].eta, Leptons[1].eta, CleanJet[0].pt, CleanJet[1].pt, CleanJet[0].phi, CleanJet[1].phi, CleanJet[0].eta, CleanJet[1].eta, Leptons[0].pdgId, Leptons[1].pdgId)
             D_QCD_VH = ROOT.RecoMELA_QCD_VH(njets, nlepton, event.MET_pt, event.MET_phi, Leptons[0].pt, Leptons[1].pt, Leptons[0].phi, Leptons[1].phi, Leptons[0].eta, Leptons[1].eta, CleanJet[0].pt, CleanJet[1].pt, CleanJet[0].phi, CleanJet[1].phi, CleanJet[0].eta, CleanJet[1].eta, Leptons[0].pdgId, Leptons[1].pdgId)
-            '''
+            
 
 
             mlj_00 = ROOT.mlj(CleanJet[0].pt, CleanJet[0].phi, CleanJet[0].eta, Leptons[0].pt,  Leptons[0].phi, Leptons[0].eta)
