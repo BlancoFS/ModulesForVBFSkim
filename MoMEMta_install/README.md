@@ -84,6 +84,8 @@ Be awere of this and, if it's your case, open again the **CMakeLists.txt** file 
 SET(LHAPDF_ROOT /afs/cern.ch/.../workdir/CMSSW_*_*_*/)
 ```
 
+**Install**
+
 Finally, install MoMEMta:
 
 ```
